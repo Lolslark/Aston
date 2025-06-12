@@ -2,22 +2,22 @@ package Aston.step1.Vehicle;
 
 public class Taxi extends Vehicle implements HasWheels, HasPropeller, HasWings, HasCargo{
     @Override
-    public boolean HasCargo() {
+    public boolean hasCargo() {
         return false;
     }
 
     @Override
-    public boolean HasPropeller() {
+    public boolean hasPropeller() {
         return false;
     }
 
     @Override
-    public boolean HasWheels() {
+    public boolean hasWheels() {
         return true;
     }
 
     @Override
-    public boolean HasWings() {
+    public boolean hasWings() {
         return false;
     }
 }

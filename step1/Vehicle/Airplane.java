@@ -3,22 +3,22 @@ package Aston.step1.Vehicle;
 public class Airplane extends Vehicle implements HasWheels, HasPropeller, HasWings, HasCargo{
 
     @Override
-    public boolean HasWheels() {
+    public boolean hasWheels() {
         return true;
     }
 
     @Override
-    public boolean HasCargo() {
+    public boolean hasCargo() {
         return true;
     }
 
     @Override
-    public boolean HasPropeller() {
+    public boolean hasPropeller() {
         return true;
     }
 
     @Override
-    public boolean HasWings() {
+    public boolean hasWings() {
         return true;
     }
 }
