@@ -1,11 +1,12 @@
 package Aston.step1.Animals;
 
-public class Bear extends Animal implements HasSpine, HasWool, Mammal{
+public class Bear extends Animal implements HasSpine, HasWool, IsMammal, InWater{
     @Override
     void printInfo() {
-        System.out.println("Bear have a spine: " + hasSpine());
-        System.out.println("Bear have a wool: " + hasWool());
-        System.out.println("The bear is a mammal " + mammal());
+        System.out.println(hasSpine() ? "Bear has a spine" : "Bear doesn't have spine");
+        System.out.println(hasWool() ? "Bear has a wool" : "Bear doesn't have wool");
+        System.out.println(isMammal() ? "Bear is a mammal" : "Bear is not a mammal");
+        System.out.println(inWater() ? "Bear lives in water" : "Bear doesn't live in water");
     }
 
     @Override
@@ -19,7 +20,12 @@ public class Bear extends Animal implements HasSpine, HasWool, Mammal{
     }
 
     @Override
-    public boolean mammal() {
+    public boolean isMammal() {
         return true;
+    }
+
+    @Override
+    public boolean inWater() {
+        return false;
     }
 }
