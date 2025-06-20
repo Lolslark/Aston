@@ -17,6 +17,7 @@ public class MyArrayList<E>{
     }
 
     public void add (int element){  // добавление в массив
+        newSize();
         array[size++] = element;
     }
 
@@ -38,6 +39,13 @@ public class MyArrayList<E>{
         }
     }
 
+    public void newSize (){
+        if (size == array.length){
+            int newSize = array.length + 1;
+            array = Arrays.copyOf(array, newSize);
+        }
+    }
+
     @Override
     public String toString() {
         return "MyArrayList{" +
@@ -50,6 +58,15 @@ public class MyArrayList<E>{
         MyArrayList<Integer> list = new MyArrayList<>();
         list.add(1);
         list.add(2);
+        list.add(3);
+        list.add(3);
+        list.add(3);
+        list.add(3);
+        list.add(3);
+        list.add(3);
+        list.add(3);
+        list.add(3);
+        list.add(3);
         list.add(3);
         System.out.println(list);
 
