@@ -4,10 +4,9 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Random random = new Random();
-        List<Book> books = new ArrayList<>();
-        List<Student> students = new ArrayList<>();
+    static Random random = new Random();
+    static List<Book> books = new ArrayList<>();
+    static {
         books.add(new Book("The Schopenhauer Cure", "Irvin Yalom", 384, 2005));
         books.add(new Book("A Time to live and a time to Die", "Erich Remark", 447,1954));
         books.add(new Book("Roadside picnic", "Strugatsky, Arkady and Boris", 256, 1971));
@@ -28,55 +27,16 @@ public class Main {
         books.add(new Book("The Name of the Rose", "Umberto Eco", 536, 1980));
         books.add(new Book("The Catcher in the Rye", "J.D. Salinger", 277, 1951));
         books.add(new Book("The Plague", "Albert Camus", 308, 1947));
+    }
 
-        students.add(new Student("Andrew Chadaev", LocalDate.of(1998, 10, 16),
-                Arrays.asList(
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size()))
-                ))
-        );
-        students.add(new Student("Ivan Petrov", LocalDate.of(1999, 5, 14),
-                Arrays.asList(
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size()))
-                ))
-        );
+    public static void main(String[] args) {
+        List<Student> students = new ArrayList<>();
 
-        students.add(new Student("Ekaterina Smirnova", LocalDate.of(2000, 2, 23),
-                Arrays.asList(
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size()))
-                ))
-        );
-
-        students.add(new Student("Dmitry Volkov", LocalDate.of(1998, 11, 7),
-                Arrays.asList(
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size()))
-                ))
-        );
-
-        students.add(new Student("Anna Kozlova", LocalDate.of(2001, 8, 30),
-                Arrays.asList(
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size())),
-                        books.get(random.nextInt(books.size()))
-                ))
-        );
+        students.add(new Student("Andrew Chadaev", LocalDate.of(1998, 10, 16), getBooks()));
+        students.add(new Student("Ivan Petrov", LocalDate.of(1999, 5, 14), getBooks()));
+        students.add(new Student("Ekaterina Smirnova", LocalDate.of(2000, 2, 23), getBooks()));
+        students.add(new Student("Dmitry Volkov", LocalDate.of(1998, 11, 7), getBooks()));
+        students.add(new Student("Anna Kozlova", LocalDate.of(2001, 8, 30),getBooks()));
 
         students.stream()
                 .peek(System.out::println)
@@ -89,6 +49,13 @@ public class Main {
                 .map(Book::getYear)
                 .findFirst()
                 .ifPresentOrElse(System.out::println, () -> System.out.println("Book not found."));
+    }
 
+    public static List<Book> getBooks (){
+        List<Book> result = new ArrayList<>();
+        for (int i = 0; i <= random.nextInt(10) + 5; i++){
+            result.add(books.get(random.nextInt(books.size())));
+        }
+        return result;
     }
 }
