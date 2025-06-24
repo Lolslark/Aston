@@ -5,13 +5,13 @@ import java.util.Arrays;
 
 public class MyHashSet <E>{
     private static int capacity = 16;
-    private Object [] array;
+    private Object[] array;
 
-    MyHashSet (){
+    MyHashSet() {
         this.array = new Object[capacity];
     }
 
-    public boolean checkDuplicate (E key){
+    public boolean checkDuplicate(E key) {
         for (int i = 0; array[i] != null; i++){
             if (array[i] == key){
                 return true;
@@ -20,24 +20,24 @@ public class MyHashSet <E>{
         return false;
     }
 
-    public void newCapacity (){
+    public void newCapacity() {
         if (array[array.length - 1] != null){
-            array = Arrays.copyOf(array, capacity*2);
+            array = Arrays.copyOf(array, capacity * 2);
         }
     }
 
-    public void add (E key){
+    public void add(E key) {
         newCapacity();
-        if (!checkDuplicate(key)){
-            for (int i = 0; i < array.length; i++){
+        if (!checkDuplicate(key)) {
+            for (int i = 0; i < array.length; i++) {
                 if (array[i] == null){
                     array[i] = key;
                     break;
                 }
-                }
             }
         }
-        public void remove (E key){
+    }
+    public void remove(E key) {
         for (int i = 0; i < array.length; i++){
             if (array[i] == key){
                 array[i] = null;
@@ -53,7 +53,7 @@ public class MyHashSet <E>{
     }
 
     public static void main(String[] args) {
-        MyHashSet <Integer> set = new MyHashSet<>();
+        MyHashSet<Integer> set = new MyHashSet<>();
         set.add(1);
         set.add(2);
         set.add(3);

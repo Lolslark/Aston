@@ -8,10 +8,10 @@ public class Main {
     static List<Book> books = new ArrayList<>();
     static {
         books.add(new Book("The Schopenhauer Cure", "Irvin Yalom", 384, 2005));
-        books.add(new Book("A Time to live and a time to Die", "Erich Remark", 447,1954));
+        books.add(new Book("A Time to live and a time to Die", "Erich Remark", 447, 1954));
         books.add(new Book("Roadside picnic", "Strugatsky, Arkady and Boris", 256, 1971));
         books.add(new Book("We", "Evgeniy Zamyatin", 224, 1920));
-        books.add(new Book( "Howard Lovecraft", "The Call of Cthulhu",480, 1926));
+        books.add(new Book("Howard Lovecraft", "The Call of Cthulhu", 480, 1926));
         books.add(new Book("Slaughterhouse-Five", "Kurt Vonnegut", 275, 1969));
         books.add(new Book("The Master and Margarita", "Mikhail Bulgakov", 384, 1967));
         books.add(new Book("Flowers for Algernon", "Daniel Keyes", 311, 1966));
@@ -32,11 +32,11 @@ public class Main {
     public static void main(String[] args) {
         List<Student> students = new ArrayList<>();
 
-        students.add(new Student("Andrew Chadaev", LocalDate.of(1998, 10, 16), getBooks()));
+        students.add(new Student("Danila Obrazumov", LocalDate.of(1998, 3, 19), getBooks()));
         students.add(new Student("Ivan Petrov", LocalDate.of(1999, 5, 14), getBooks()));
         students.add(new Student("Ekaterina Smirnova", LocalDate.of(2000, 2, 23), getBooks()));
         students.add(new Student("Dmitry Volkov", LocalDate.of(1998, 11, 7), getBooks()));
-        students.add(new Student("Anna Kozlova", LocalDate.of(2001, 8, 30),getBooks()));
+        students.add(new Student("Anna Kozlova", LocalDate.of(2001, 8, 30), getBooks()));
 
         students.stream()
                 .peek(System.out::println)
@@ -51,7 +51,7 @@ public class Main {
                 .ifPresentOrElse(System.out::println, () -> System.out.println("Book not found."));
     }
 
-    public static List<Book> getBooks (){
+    public static List<Book> getBooks() {
         List<Book> result = new ArrayList<>();
         for (int i = 0; i <= random.nextInt(10) + 5; i++){
             result.add(books.get(random.nextInt(books.size())));
