@@ -21,7 +21,7 @@ public class Whale extends Animal implements InWater, IsMammal, HasWool, HasSpin
 
     @Override
     public boolean hasSpine() {
-        return true;
+        return false;
     }
 
     @Override
