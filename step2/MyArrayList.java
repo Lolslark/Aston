@@ -2,12 +2,12 @@ package Aston.step2;
 
 import java.util.Arrays;
 
-public class MyArrayList<E> {
+public class MyArrayList<E>{
     private Object[] array;
     private int size;
     private static final int DEFAULT_CAPACITY = 10;
 
-    public MyArrayList() {
+    public MyArrayList(){
         this.array = new Object[DEFAULT_CAPACITY];
         this.size = 0;
     }
@@ -16,31 +16,31 @@ public class MyArrayList<E> {
         return size;
     }
 
-    public void add(int element) {  // добавление в массив
+    public void add (int element){  // добавление в массив
         newSize();
         array[size++] = element;
     }
 
-    public Object get(int index) {  //взять из массива
+    public Object get (int index){  //взять из массива
         return array[index];
     }
 
-    public Object[] remove(int index) { //удалить из массива
-        for (int i = index; i < array.length - 1; i++) {
-            array[i] = array[i + 1];
+    public Object remove (int index){ //удалить из массива
+        for (int i = index; i < array.length - 1; i++){
+            array[i] = array[i+1];
         }
-        size--;
+        size --;
         return array;
     }
 
-    public void addAll(MyArrayList <E> list) {  //добавить всё
-        for (int i = 0; i < list.size(); i++) {
+    public void addAll (MyArrayList <E> list){  //добавить всё
+        for (int i = 0; i < list.size(); i++){
             add(i);
         }
     }
 
-    public void newSize() {
-        if (size == array.length) {
+    public void newSize (){
+        if (size == array.length){
             int newSize = array.length + 1;
             array = Arrays.copyOf(array, newSize);
         }
@@ -81,5 +81,6 @@ public class MyArrayList<E> {
         list1.addAll(list);
 
         System.out.println(list1);
+
     }
 }
